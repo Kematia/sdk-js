@@ -129,6 +129,8 @@ describe("Authentication", () => {
     });
 
     it("Nullifies the token", async () => {
+      client.config.project = "testProject";
+
       await client.logout();
 
       expect(client.config.token).to.be.undefined;
@@ -348,6 +350,8 @@ describe("Authentication", () => {
       });
 
       it("Does not start the interval without the persist key", async () => {
+        client.config.project = "testProject";
+
         await client.logout();
         client.config.reset();
 
