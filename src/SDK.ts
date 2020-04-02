@@ -56,7 +56,7 @@ export class SDK {
 
   // create a new instance with an API
   constructor(options: IConfigurationOptions) {
-    this.config = new Configuration(options, options ? options.storage : undefined);
+    this.config = new Configuration(options, options.storage ? options.storage : undefined);
     this.api = new API(this.config);
   }
 
