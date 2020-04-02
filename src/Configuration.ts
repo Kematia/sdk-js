@@ -22,6 +22,7 @@ export interface IConfigurationValues {
   tokenExpirationTime?: number;
   persist: boolean;
   mode: AuthModes;
+  storage?: IStorageAPI;
 }
 
 export interface IConfiguration {
@@ -255,6 +256,8 @@ export class Configuration implements IConfiguration {
   }
 
   public hydrate(props: IConfigurationValues) {
+    // Clears the passed storage to avoid passing itself and going out of memory
+    props.storage = undefined
     if (!this.storage || !this.persist) {
       return;
     }
