@@ -76,6 +76,9 @@ export interface IConfigurationOptions {
    * Auto token expiration time
    */
   tokenExpirationTime?: number;
+
+
+  storage?: IStorageAPI;
 }
 
 /**
